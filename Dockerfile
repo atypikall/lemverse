@@ -21,8 +21,7 @@ RUN apk --no-cache add \
 		bash \
 		ca-certificates \
         imagemagick \
-        graphicsmagick \
-        python make g++
+        graphicsmagick
 
 # Copy in entrypoint
 COPY --from=builder $SCRIPTS_FOLDER $SCRIPTS_FOLDER/

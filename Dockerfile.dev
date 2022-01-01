@@ -12,10 +12,11 @@ RUN apt update && apt install -y \
 		bash \
 		ca-certificates \
         imagemagick \
-        graphicsmagick \
-        python make g++
+        graphicsmagick
 
 
-WORKDIR $APP_SOURCE_FOLDER
+WORKDIR /opt/src
 
-CMD ["meteor", "--unsafe-perm", "--settings", "settings-dev.json", "--port", "9000"]
+RUN chown -Rh root .meteor/local
+
+CMD ["meteor", "--settings", "settings-dev.json", "--port", "9000"]
